@@ -1,0 +1,1 @@
+web: gunicorn loja_cardoso.wsgi --log-file -
