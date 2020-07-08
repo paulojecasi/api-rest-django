@@ -15,7 +15,7 @@ class Setor(models.Model):
         verbose_name_plural = 'Setores'
 
     def __str__(self):
-        return '{}'.format(self.nome)
+        return self.nome
 
 
 class Funcionario(models.Model):
@@ -38,7 +38,7 @@ class Funcionario(models.Model):
         verbose_name_plural = 'Funcionarios'
 
     def __str__(self):
-        return {}.format(self.nome)
+        return self.nome
 
 
 from django.db import models

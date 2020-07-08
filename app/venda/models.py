@@ -19,7 +19,7 @@ class Venda(models.Model):
         verbose_name_plural = 'Vendas'
 
     def __str__(self):
-        return '{}'.format(self.funcionario)
+        return self.funcionario
 
 
 class VendasProd(models.Model):
@@ -40,7 +40,7 @@ class VendasProd(models.Model):
         verbose_name_plural = 'Produtos da Venda'
 
     def __str__(self):
-        return {}.format(self.venda)
+        return self.venda
 
 
 

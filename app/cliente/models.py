@@ -15,7 +15,7 @@ class Endereco(models.Model):
         verbose_name_plural = 'Endereços'
 
     def __str__(self):
-        return '{}'.format(self.endereco)
+        return self.endereco
 
 
 class Cliente(models.Model):
@@ -43,5 +43,5 @@ class Cliente(models.Model):
         verbose_name_plural = 'Clientes'
 
     def __str__(self):
-        return {}.format(self.nome)
+        return self.nome
 
