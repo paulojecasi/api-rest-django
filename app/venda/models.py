@@ -3,21 +3,14 @@ from django.db import models
 # Create your models here.
 
 class Venda(models.Model):
-    tipo_CHOIDES = (
-        (1, 'Atacado'),
-        (2, 'Varejo')
-    )
-
     funcionario = models.ForeignKey('funcionario.Funcionario',
                                   related_name='venda_funcionario',
                                   on_delete=models.CASCADE,
-                                  null=True,
-                                  verbose_name='Categoria')
+                                  null=True)
     cliente = models.ForeignKey('cliente.Cliente',
                                     related_name='venda_cliente',
                                     on_delete=models.CASCADE,
-                                    null=True,
-                                    verbose_name='Categoria')
+                                    null=True)
 
     criado_em = models.DateField(auto_now=True)
 
@@ -30,21 +23,14 @@ class Venda(models.Model):
 
 
 class VendasProd(models.Model):
-    sexo_CHOIDES = (
-        (1, 'MASCULINO'),
-        (2, 'FEMININO')
-    )
-
 
     venda= models.ForeignKey(Venda, related_name='vendasprod_venda',
                                     on_delete=models.CASCADE,
-                                    null=True,
-                                    verbose_name='Venda')
+                                    null=True)
     produto = models.ForeignKey('produto.Produto',
                                 related_name='vendasprod_produto',
                                 on_delete=models.CASCADE,
-                                null=True,
-                                verbose_name='Produto')
+                                null=True)
 
     quantidade = models.PositiveIntegerField(null=False, default=1)
 

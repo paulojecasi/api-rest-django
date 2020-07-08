@@ -3,10 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Endereco(models.Model):
-    endereco =models.CharField(max_length=100, verbose_name= "Endereco")
-    bairro = models.CharField(max_length=80, verbose_name= "Bairro")
-    cidade = models.CharField(max_length=80, verbose_name= "Cidade")
-    uf = models.CharField(max_length=40, verbose_name="Uf")
+    endereco =models.CharField(max_length=100)
+    bairro = models.CharField(max_length=80)
+    cidade = models.CharField(max_length=80)
+    uf = models.CharField(max_length=40)
     latitude = models.IntegerField()
     longitude = models.IntegerField()
 
@@ -31,13 +31,12 @@ class Cliente(models.Model):
     )
     endereco = models.ForeignKey(Endereco, related_name='endereco_cliente',
                                 on_delete=models.CASCADE,
-                                null=True,
-                                verbose_name='Usuario')
-    nome = models.CharField(max_length=100, verbose_name="Nome")
-    sexo = models.IntegerField(max_length=1, choices=sexo_CHOIDES, verbose_name="Sexo")
+                                null=True)
+    nome = models.CharField(max_length=100)
+    sexo = models.IntegerField(choices=sexo_CHOIDES)
     data_nasc = models.DateField(auto_now=False)
-    telefone = models.CharField(max_length=30, verbose_name=" Telefone")
-    tipo = models.IntegerField(max_length=1, choices= tipo_cliente_CHOICES)
+    telefone = models.CharField(max_length=30)
+    tipo = models.IntegerField(choices= tipo_cliente_CHOICES)
 
     class META:
         verbose_name = 'Cliente'

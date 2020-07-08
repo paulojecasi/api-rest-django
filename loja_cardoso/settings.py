@@ -28,6 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['lojacardoso.herokuapp.com']
+#ALLOWED_HOSTS = []
 
 
 # Application definition

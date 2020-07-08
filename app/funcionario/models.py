@@ -7,9 +7,8 @@ class Setor(models.Model):
         (1, 'Vendas Externas'),
         (2, 'Vendas Internas')
     )
-    nome = models.CharField(max_length=100, verbose_name="Nome")
-    tipo = models.IntegerField(max_length=1, verbose_name="Tipo", choices=tipo_CHOIDES)
-
+    nome = models.CharField(max_length=100)
+    tipo = models.IntegerField(choices=tipo_CHOIDES)
 
     class Meta:
         verbose_name = 'Setor'
@@ -28,10 +27,9 @@ class Funcionario(models.Model):
 
     setor = models.ForeignKey(Setor, related_name='funcionario_setor',
                                     on_delete=models.CASCADE,
-                                    null=True,
-                                    verbose_name='Setor')
-    nome = models.CharField(max_length=100, verbose_name="Nome")
-    sexo = models.IntegerField(max_length=1, choices=sexo_CHOIDES, verbose_name="Sexo")
+                                    null=True)
+    nome = models.CharField(max_length=100)
+    sexo = models.IntegerField(choices=sexo_CHOIDES)
     data_nasc = models.DateField(auto_now=False)
     cpf = models.PositiveIntegerField()
 

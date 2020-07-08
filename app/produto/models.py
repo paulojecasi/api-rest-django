@@ -7,8 +7,8 @@ class Categoria(models.Model):
         (1, 'Atacado'),
         (2, 'Varejo')
     )
-    nome = models.CharField(max_length=100, verbose_name="Nome")
-    tipo_venda = models.IntegerField(max_length=1, verbose_name="Tipo Vendas", choices=tipo_CHOIDES)
+    nome = models.CharField(max_length=100)
+    tipo_venda = models.IntegerField(choices=tipo_CHOIDES)
 
 
     class Meta:
@@ -20,17 +20,10 @@ class Categoria(models.Model):
 
 
 class Produto(models.Model):
-    sexo_CHOIDES = (
-        (1, 'MASCULINO'),
-        (2, 'FEMININO')
-    )
-
-
     categoria= models.ForeignKey(Categoria, related_name='produto_categoria',
                                     on_delete=models.CASCADE,
-                                    null=True,
-                                    verbose_name='Categoria')
-    nome = models.CharField(max_length=100, verbose_name="Nome")
+                                    null=True)
+    nome = models.CharField(max_length=100)
     preco = models.DecimalField(max_digits=8, decimal_places=2)
     estoque = models.PositiveIntegerField()
 
